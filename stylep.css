@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    overflow-y: scroll; /* Allow vertical scrolling */
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    background-color: black;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    color: blanchedalmond;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
+}
+
+.hamburg,
+.cancel {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: white;
+    display: none;
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+}
+
+.nav-container .links {
+    display: flex;
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear;
+}
+
+.nav-container .links a::before {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #077b32;
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before {
+    width: 100%;
+}
+
+.nav-container .links a:hover {
+    color: #077b32;
+}
+
+.dropdown {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform: translateY(-500px);
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    justify-content: center;
+    padding: 15px 0;
+    align-items: center;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a:hover {
+    background-color: #077b32;
+}
+
+section {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: black; /* Light background for contrast */
+}
+
+.main-container {
+    width: 100%;
+    height: auto; /* Adjust height to fit content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .image {
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Must be equal to width for a perfect circle */
+    border-radius: 50%; /* Makes the container circular */
+    overflow: hidden; /* Ensures the image fits within the circle */
+    box-shadow: 0 0 50px #077b32;
+    display: flex; /* Centering the image inside the container */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+.main-container .image img {
+    width: 100%; /* Ensures the image fills the container */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+.main-container .image:hover {
+    animation: animate 1.5s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.main-container .content {
+    color: rgb(255, 255, 255);
+    width: 40%;
+    min-height: 100px;
+}
+
+.content h1 {
+    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+}
+
+.content h1 span {
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
+}
+
+.content .typewriter {
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    font-weight: 600;
+}
+
+.content .typewriter-text {
+    color: #077b32;
+    text-shadow: 0 0 10px #077b32;
+}
+
+.content p {
+    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
+    margin: 10px 0;
+}
+
+.social-links i {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #077b32;
+    border-radius: 50%;
+    color: #077b32;
+    margin: 5px 15px;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+
+.social-links i:hover {
+    transform: scale(1.3);
+    color: black;
+    background-color: #077b32;
+    filter: drop-shadow(0 0 10px #077b32);
+}
+
+.content button {
+    width: 75%;
+    height: 6vh;
+    margin: 30px;
+    background-color: #077b32;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 120%;
+    font-weight: 700;
+    border-radius: 25px;
+    transition: 0.2s linear;
+}
+
+.content button:hover {
+    transform: scale(1.1);
+    color: #077b32;
+    border: 5px solid #077b32;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #077b32;
+}
+
+@media (max-width: 884px) {
+    nav .logo {
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container .links {
+        display: none;
+    }
+
+    .hamburg,
+    .cancel {
+        display: block;
+    }
+
+    .main-container .content {
+        width: 80%;
+    }
+
+    .social-links i {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    .main-container .image {
+        z-index: -1;
+        width: 50%;
+        height: 60%;
+    }
+}
+
+@media (max-width: 440px) {
+    .main-container .image {
+        width: 50%;
+        height: 60%;
+        margin-bottom: 0px;
+    }
+
+    .main-container .content {
+        width: 80%;
+    }
+
+    .main-container button {
+        margin-top: 15px;
+    }
+}
+
+/* General Styles for Sections */
+section {
+    padding: 40px 20px;
+    background-color: black; /* Light background for contrast */
+}
+/*cv portion */
+/* CSS for CV Download Button with Parenthesis Border */
+.cv-download {
+    margin-top: 40px; /* Add space above the button */
+    text-align: left; /* Center the button */
+}
+
+.button-wrapper {
+    display: inline-block;
+    border: 4px solid #077b32; /* Border color */
+    border-radius: 40px; /* Round corners to create parenthesis effect */
+    padding: 10px 20px; /* Add padding inside the border */
+    position: relative;
+}
+
+.button-wrapper::before,
+.button-wrapper::after {
+    content: "(";
+    font-size: 2rem; /* Size of parentheses */
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    color: #077b32; /* Color of parentheses */
+}
+
+.button-wrapper::before {
+    left: -30px; /* Adjust based on button size */
+}
+
+.button-wrapper::after {
+    right: -30px; /* Adjust based on button size */
+}
+
+.button-wrapper button {
+    background-color: #077b32; /* Match your color scheme */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-wrapper button:hover {
+    background-color: #065d2a; /* Darker shade on hover */
+}
+
+
+/* Styles for Containers with Hover Effect */
+.about-container,
+.skills-container,
+.research-container,
+.certificate-container,
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #077b32; /* Light background for readability */
+    color: rgb(255, 255, 255); /* Text color inside the block */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition effect */
+}
+
+/* Hover Effect */
+.about-container:hover,
+.skills-container:hover,
+.research-container:hover,
+.certificate-container:hover,
+.contact-container:hover {
+    background-color: black; /* Dark background on hover */
+    box-shadow:  0 0 10px #077b32; /* Dark green border effect */
+}
+
+/* General Styles for Text and Links */
+h2 {
+    font-size: 2rem;
+    color: whitesmoke; /* Dark color for headings inside containers */
+    margin-bottom: 20px;
+}
+
+.about-container p,
+.skills-container ul,
+.research-container p,
+.certificate-container p,
+.contact-container p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.skills-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.contact-container a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+}
+
+.contact-container a:hover {
+    text-decoration: underline;
+}
+
+#about {
+    text-align: center; /* Centers the images horizontally */
+}
+
+#about img {
+    margin: 20px; /* Adds space between the images */
+    height: 250px; /* Ensures both images have the same height */
+}
+
+.large-image {
+    width: 200px; /* Larger width for the first image */
+}
+
+.small-image {
+    width: 300px; /* Smaller width for the second image */
+}
+#skills {
+    width: 50%; /* Adjust based on your layout */
+    margin: 0 auto;
+  }
+  
+  .skill {
+    margin-bottom: 20px;
+    text-align: center; /* Center-align the entire skill section */
+  }
+  
+  .skill h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: rebeccapurple; /* Adjust the color as per your design */
+  }
+  
+  .skill-bar {
+    width: 50%;
+    background-color: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto; /* Center-align the progress bar */
+  }
+  
+  .skill-level {
+    height: 15px;
+    background-color: #077b32; /* Adjust the color as per your design */
+    text-align: right;
+    padding-right: 10px;
+    line-height: 15px; /* Centers the percentage text vertically */
+    color: white;
+    font-weight: bold;
+    border-radius: 25px 0 0 25px;
+    position: relative;
+  }
+  h2 {
+    font-size: 1.5em;
+    color:  #077b32; /* Adjust the color as per your design */
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd; /* Optional: Adds a bottom border to separate sections */
+    padding-bottom: 10px;
+}
+
+#certificates {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    gap: 20px; /* Space between certificates */
+    justify-content: space-between; /* Evenly distribute space between items */
+}
+
+.certificate {
+    flex: 1 1 calc(33.33% - 20px); /* Adjusts each certificate to take up one-third of the container width minus the gap */
+    box-sizing: border-box; /* Include padding and border in the width */
+    display: flex;
+    flex-direction: column; /* Align content (image and text) vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center the text */
+}
+
+.certificate img {
+    width: 90%; /* Make the image fill the width of its container */
+    height: auto; /* Maintain the aspect ratio */
+    border: 2px solid #077b32; /* Green border */
+    padding: 10px;
+    box-shadow: 0px 0px 15px 5px rgba(17, 126, 17, 0.5); /* Green glow effect */
+    border-radius: 10px; /* Optional: rounded corners */
+    transition: box-shadow 0.3s ease; /* Remove zoom, keep shadow transition */
+}
+
+.certificate img:hover {
+    box-shadow: 0 0 20px #077b32; /* Green shadow on hover */
+}
+
+.certificate h3 {
+    margin-top: 10px; /* Space between the image and title */
+    font-size: 1.2rem;
+    color: whitesmoke; /* Green color for headings */
+}
+
+/* CSS for Contact Section */
+.contact-container {
+    text-align: center; /* Center align text */
+}
+
+.contact-image {
+    display: block;
+    margin: 20px auto; /* Center the image horizontally and add space around it */
+    max-width: 150px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
